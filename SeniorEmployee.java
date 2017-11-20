@@ -37,7 +37,7 @@ public class SeniorEmployee extends Employee implements EmployeeCompensation{
 	 * 
 	 */
 	public String toString() {
-		return (getID()+"\t"+getYearHired()+"\t"+annualBonus_ +"\nThis is a senior Employee.ID is " +getID()+",hired since "+ getYearHired()+" and annual bonus is $"+annualBonus_);
+		return (getID()+"\t"+getYearHired()+"\t\tSenior\t$"+getBaseSalary()+"\t\t$"+annualBonus_ +"\n"+ "This is a senior Employee.ID is " +getID()+", hired since "+ getYearHired()+" and annual bonus is $"+annualBonus_);
 	}//end bracket of toString Method
 	/**
 	 * 

@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.io.PrintWriter;
 public class Manager extends Employee implements EmployeeCompensation{
 	private double stockDividend_=0;
 	
@@ -38,14 +40,16 @@ public class Manager extends Employee implements EmployeeCompensation{
 	/**
 	 * 
 	 */
-	public void ShowDividend() {
-		System.out.print("Dividend is "+ stockDividend_);
+	public void ShowDividend(PrintWriter pw) {
+		System.out.println("Dividend is "+ getStockDividend()+"!");
+		pw.println("Dividend is "+ getStockDividend()+"!");
+		
 	}
 	/**
 	 * return string 
 	 */
 	public String toString() {
-		return (getID()+"\t"+getYearHired()+"\t"+ stockDividend_+ "\nThis is a manager.ID is " +getID()+",hired since "+ getYearHired()+" and annual bonus is $"+stockDividend_);
+		return (getID()+"\t"+getYearHired()+"\t\tManager\t$"+ getBaseSalary()+"\t\t$"+stockDividend_+ "\n"+"This is a manager.ID is " +getID()+", hired since "+ getYearHired()+" and annual bonus is $"+stockDividend_);
 	}
 	/**
 	 * return total compensation

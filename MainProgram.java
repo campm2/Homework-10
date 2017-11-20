@@ -90,52 +90,58 @@ public class MainProgram{
 			ArrayList<Employee> employeeArray=new ArrayList<Employee>();
 			employeeArray=ReadInputData(inputFileName);
 			
-			JuniorEmployee juniorObject=null;
-			SeniorEmployee seniorObject=null;
-			Manager managerObject=null;
-			
 			//Go through the array and call toStringMethods
-			System.out.print(employeeArray.size());
+			System.out.println("ID\tYEAR_HIRED\tTITLE\tBASE_SALARY\tCOMPENSATION");
+			output.println("ID\tYEAR_HIRED\tTITLE\tBASE_SALARY\tCOMPENSATION");
 			for(int i=0;i<employeeArray.size();i++) {
 				
 				if(employeeArray.get(i) instanceof  JuniorEmployee) {
 					String junior=employeeArray.get(i).toString();
-					System.out.print(junior);
+					System.out.println(junior);
+					output.println(junior);
 					
 				}//end bracket of if
 				else if(employeeArray.get(i) instanceof SeniorEmployee) {
 					String senior=employeeArray.get(i).toString();
-					System.out.print(senior);
+					System.out.println(senior);
+					output.println(senior);
 				}//end bracket of else if
 				else if(employeeArray.get(i) instanceof Manager) {
 					String manager=employeeArray.get(i).toString();
-					System.out.print(manager);
+					System.out.println(manager);
+					output.println(manager);
 				}//end bracket of second else if
 				
-				
 			}//end bracket for the for loop
-			//Go through the array and call ShowDividend Method from every manager object
-			for(int j=0;j<employeeArray.size();j++) {
-				if(employeeArray.get(j) instanceof Manager) {
-					PrintManagerDividend();
-					
-				}
-				
-			}//end bracket of second for loop
+			PrintManagerDividend(employeeArray,output);
+			System.out.print("Goodbye!");
+			output.print("Goodbye!");
+			output.close();
 			
-		}
+		}//end bracket of the if
 		else {
 			System.out.println("Error: File does not exist");
+			
 		}//end of outside else
 		keyboard.close();
 		
+		
 	}//end bracket of the main
 	/**
-	 * 
+	 * @param employeeArray
 	 */
-	public static void PrintManagerDividend() {
-		Manager managerObject =new Manager();
-		managerObject.ShowDividend();
+	public static void PrintManagerDividend(ArrayList<Employee> employeeArray, PrintWriter pw) {
+		//Go through the array and call ShowDividend Method from every manager object
+		for(int j=0;j<employeeArray.size();j++) {
+			if(employeeArray.get(j) instanceof Manager) {
+				System.out.print("Employee "+ employeeArray.get(j).getID()+" is a manager");
+				pw.print("Employee "+ employeeArray.get(j).getID()+" is a manager");
+				((Manager) employeeArray.get(j)).ShowDividend(pw);
+				
+			}
+			
+		}//end bracket of second for loop
+		
 		
 	}//end bracket of PrintManagerDividend()
 	/**
@@ -187,8 +193,21 @@ public class MainProgram{
 		inputFile.close();
 		return ArrayList;
 	}//end bracket  of method
-	public static void SelectionSort() {
+	/*public static ArrayList<Employee SelectionSort(ArrayList<Employee> employeeArray) {
+		int min;
+		for(int i=0;i<employeeArray.size();i++) {
+			min=i;
+			for(int j=i+1;i<employeeArray.size();j++) {
+				if(employeeArray.get(j).getID()<=employeeArray.get(min).getID()) {
+					min=j;
+				}
+				else {
+					
+				}
+				
+			}
+		}
 		
-	}//end bracket of selection sort
+	}//end bracket of selection sort*/
 	
 }//end bracket of main class
