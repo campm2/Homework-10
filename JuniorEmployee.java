@@ -58,14 +58,13 @@ public class JuniorEmployee extends Employee implements EmployeeCompensation {
 	//to String Method
 	//###############################
 	/**
-	 * 
+	 * @return String
 	 */
 	public String toString() {
 		return String.format ("This is a junior Employee.ID is %d, hired since %d, and commission is $%,.0f",getID(),getYearHired(),commission_);
 	}//end bracket of toString Method
-	/**
-	 * 
-	 * @return
+	/** 
+	 * @return String
 	 */
 	public String EmployeeInfo() {
 		return String.format("%d\t%d\t\tJunior\t$%,.0f\t\t$%,.0f\n",getID(),getYearHired(),getBaseSalary(),CalculateTotalCompensation());

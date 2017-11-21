@@ -88,41 +88,45 @@ public class MainProgram{
 		if(file.exists()) {
 			PrintWriter output=new PrintWriter("employeeOutput.txt");
 			ArrayList<Employee> employeeArray=new ArrayList<Employee>();
+			ArrayList<Employee> employeeArraySorted=new ArrayList<Employee>();
 			employeeArray=ReadInputData(inputFileName);
+			employeeArraySorted=SelectionSort(employeeArray);
 			
 			//Go through the array and call toStringMethods
 			System.out.println("ID\tYEAR_HIRED\tTITLE\tBASE_SALARY\tCOMPENSATION");
 			output.println("ID\tYEAR_HIRED\tTITLE\tBASE_SALARY\tCOMPENSATION");
-			for(int i=0;i<employeeArray.size();i++) {
+			for(int i=0;i<employeeArraySorted.size();i++) {
 				
-				if(employeeArray.get(i) instanceof  JuniorEmployee) {
-					String juniorInfo=employeeArray.get(i).EmployeeInfo();
+				if(employeeArraySorted.get(i) instanceof  JuniorEmployee) {
+					String juniorInfo=employeeArraySorted.get(i).EmployeeInfo();
 					System.out.println(juniorInfo);
 					output.println(juniorInfo);
-					String junior=employeeArray.get(i).toString();
+					String junior=employeeArraySorted.get(i).toString();
 					System.out.println(junior);
 					output.println(junior);
 					
 				}//end bracket of if
-				else if(employeeArray.get(i) instanceof SeniorEmployee) {
-					String seniorInfo=employeeArray.get(i).EmployeeInfo();
+				else if(employeeArraySorted.get(i) instanceof SeniorEmployee) {
+					String seniorInfo=employeeArraySorted.get(i).EmployeeInfo();
 					System.out.println(seniorInfo);
 					output.println(seniorInfo);
-					String senior=employeeArray.get(i).toString();
+					String senior=employeeArraySorted.get(i).toString();
 					System.out.println(senior);
 					output.println(senior);
 				}//end bracket of else if
-				else if(employeeArray.get(i) instanceof Manager) {
-					String managerInfo=employeeArray.get(i).EmployeeInfo();
+				else if(employeeArraySorted.get(i) instanceof Manager) {
+					String managerInfo=employeeArraySorted.get(i).EmployeeInfo();
 					System.out.println(managerInfo);
 					output.println(managerInfo);
-					String manager=employeeArray.get(i).toString();
+					String manager=employeeArraySorted.get(i).toString();
 					System.out.println(manager);
 					output.println(manager);
 				}//end bracket of second else if
 				
 			}//end bracket for the for loop
-			PrintManagerDividend(employeeArray,output);
+			System.out.println("----------------------------------------------------------------------------------");
+			output.println("----------------------------------------------------------------------------------");
+			PrintManagerDividend(employeeArraySorted,output);
 			System.out.print("Goodbye!");
 			output.print("Goodbye!");
 			output.close();
@@ -202,21 +206,29 @@ public class MainProgram{
 		inputFile.close();
 		return ArrayList;
 	}//end bracket  of method
-	/*public static ArrayList<Employee SelectionSort(ArrayList<Employee> employeeArray) {
-		int min;
-		for(int i=0;i<employeeArray.size();i++) {
-			min=i;
-			for(int j=i+1;i<employeeArray.size();j++) {
-				if(employeeArray.get(j).getID()<=employeeArray.get(min).getID()) {
-					min=j;
-				}
-				else {
-					
-				}
-				
-			}
-		}
+	public static ArrayList<Employee> SelectionSort(ArrayList<Employee> employeeArray) {
+		int minIndex,minValue;
+		for(int startScan=0;startScan<employeeArray.size()-1;startScan++) {
+			minIndex=startScan;
+			minValue=employeeArray.get(startScan).getID();
+			for(int index=startScan+1;index<employeeArray.size();index++) {
+				if(employeeArray.get(index).getID()<minValue) {
+					minValue=employeeArray.get(index).getID();
+					minIndex=index;
+				}//end bracket of if
+
+			}//end bracket of inside for loop
+			Employee temp=employeeArray.get(minIndex);
+			employeeArray.set(minIndex, employeeArray.get(startScan));
+			employeeArray.set(startScan,temp);
+			//employeeArray.set(startScan, employeeArray.get(minValue));
+			//temp=employeeArray.get(minIndex).getID();
+			//temp=employeeArray.get(startScan).getID();
+			//minValue=employeeArray.get(startScan).getID();
+			
+		}//end bracket of outside for loop
+		return employeeArray;
 		
-	}//end bracket of selection sort*/
+	}//end bracket of selection sort
 	
 }//end bracket of main class

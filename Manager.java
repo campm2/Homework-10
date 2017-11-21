@@ -71,7 +71,7 @@ public class Manager extends Employee implements EmployeeCompensation{
 		return String.format("%d\t%d\t\tManager\t$%,.0f\t\t$%,.0f\n",getID(),getYearHired(),getBaseSalary(),CalculateTotalCompensation());
 	}
 	/**
-	 * return total compensation
+	 * return compensation_
 	 */
 	public double CalculateTotalCompensation() {
 		compensation_=(getBaseSalary()+stockDividend_);

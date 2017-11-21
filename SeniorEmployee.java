@@ -47,20 +47,19 @@ public class SeniorEmployee extends Employee implements EmployeeCompensation{
 	
 	//toString method
 	/**
-	 * 
+	 * @return string
 	 */
 	public String toString() {
 		return String.format ("This is a senior Employee.ID is %d, hired since %d, and annual bonus is $%,.0f",getID(),getYearHired(),annualBonus_);
 	}//end bracket of toString Method
 	/**
-	 * 
-	 * @return
+	 * @return String
 	 */
 	public String EmployeeInfo() {
 		return String.format("%d\t%d\t\tSenior\t$%,.0f\t\t$%,.0f\n",getID(),getYearHired(),getBaseSalary(),CalculateTotalCompensation());
 	}
 	/**
-	 * 
+	 * @return compensation_
 	 */
 	public double CalculateTotalCompensation() {
 		
