@@ -1,4 +1,4 @@
 public interface EmployeeCompensation{
 	
-	public abstract double CalcualteTotalCompensation();
-}
+	public abstract double CalculateTotalCompensation();
+}//end bracket 

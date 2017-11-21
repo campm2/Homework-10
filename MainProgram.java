@@ -134,8 +134,8 @@ public class MainProgram{
 		//Go through the array and call ShowDividend Method from every manager object
 		for(int j=0;j<employeeArray.size();j++) {
 			if(employeeArray.get(j) instanceof Manager) {
-				System.out.print("Employee "+ employeeArray.get(j).getID()+" is a manager");
-				pw.print("Employee "+ employeeArray.get(j).getID()+" is a manager");
+				System.out.print("Employee "+ employeeArray.get(j).getID()+" is a manager. ");
+				pw.print("Employee "+ employeeArray.get(j).getID()+" is a manager. ");
 				((Manager) employeeArray.get(j)).ShowDividend(pw);
 				
 			}
