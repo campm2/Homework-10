@@ -85,6 +85,9 @@ public abstract class Employee{
 	public String toString() {
 		return ID_+"\t"+yearHired_+"\t"+baseSalary_+"\t"+totalCompensation_;
 	}//end bracket of to sTring Method
+	public String EmployeeInfo() {
+		return ID_+"\t"+yearHired_+"\t"+baseSalary_+"\t"+totalCompensation_;
+	}
 	
 	
 }//end bracket of class

@@ -53,15 +53,22 @@ public class Manager extends Employee implements EmployeeCompensation{
 	 * 
 	 */
 	public void ShowDividend(PrintWriter pw) {
-		System.out.println("Dividend is "+ getStockDividend()+"!");
-		pw.println("Dividend is "+ getStockDividend()+"!");
+		System.out.printf("Dividend is $%,.0f!\n",getStockDividend());
+		pw.printf("Dividend is $%,.0f!\n",getStockDividend());
 		
 	}
 	/**
 	 * return string 
 	 */
 	public String toString() {
-		return (getID()+"\t"+getYearHired()+"\t\tManager\t$"+ getBaseSalary()+"\t\t$"+CalculateTotalCompensation()+ "\n"+"This is a manager.ID is " +getID()+", hired since "+ getYearHired()+", and annual bonus is $"+stockDividend_);
+		return String.format ("This is a manager.ID is %d, hired since %d, and stock dividend is $%,.0f",getID(),getYearHired(),stockDividend_);
+	}//end bracket of toString Method
+	/**
+	 * 
+	 * @return string
+	 */
+	public String EmployeeInfo() {
+		return String.format("%d\t%d\t\tManager\t$%,.0f\t\t$%,.0f\n",getID(),getYearHired(),getBaseSalary(),CalculateTotalCompensation());
 	}
 	/**
 	 * return total compensation

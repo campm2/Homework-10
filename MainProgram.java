@@ -96,17 +96,26 @@ public class MainProgram{
 			for(int i=0;i<employeeArray.size();i++) {
 				
 				if(employeeArray.get(i) instanceof  JuniorEmployee) {
+					String juniorInfo=employeeArray.get(i).EmployeeInfo();
+					System.out.println(juniorInfo);
+					output.println(juniorInfo);
 					String junior=employeeArray.get(i).toString();
 					System.out.println(junior);
 					output.println(junior);
 					
 				}//end bracket of if
 				else if(employeeArray.get(i) instanceof SeniorEmployee) {
+					String seniorInfo=employeeArray.get(i).EmployeeInfo();
+					System.out.println(seniorInfo);
+					output.println(seniorInfo);
 					String senior=employeeArray.get(i).toString();
 					System.out.println(senior);
 					output.println(senior);
 				}//end bracket of else if
 				else if(employeeArray.get(i) instanceof Manager) {
+					String managerInfo=employeeArray.get(i).EmployeeInfo();
+					System.out.println(managerInfo);
+					output.println(managerInfo);
 					String manager=employeeArray.get(i).toString();
 					System.out.println(manager);
 					output.println(manager);
